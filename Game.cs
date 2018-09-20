@@ -22,7 +22,7 @@ namespace rock_paper_scissors {
       string option = Console.ReadLine().ToLower();
       if (!Options.ContainsKey(option)) {
         Console.WriteLine("Invalid option...");
-        Thread.Sleep(500);
+        Thread.Sleep(750);
         Console.Clear();
         return GetUserChoice();
       }
@@ -40,6 +40,8 @@ namespace rock_paper_scissors {
         string enemyChoice = RandomChoice();
         Console.WriteLine($"The enemy chose {enemyChoice}.");
 
+        Thread.Sleep(500);
+
         if (Options[userChoice] == enemyChoice) {
           Console.WriteLine("You win!");
         } else if (userChoice == enemyChoice) {
@@ -47,8 +49,11 @@ namespace rock_paper_scissors {
         } else {
           Console.WriteLine("You lose :(");
         }
-        Console.Write("Would you like to keep playing (Y/n)");
-        if (Console.ReadLine().ToLower() == "n") {
+
+        Thread.Sleep(500);
+
+        Console.Write("Would you like to keep playing (Y/n): ");
+        if (Console.ReadLine().ToLower().Contains('n')) {
           playing = false;
         }
       }
